@@ -42,6 +42,7 @@ class AppText extends StatelessWidget {
               : TextDecoration.none,
           decorationThickness: 1,
           decorationColor: color ?? Colors.black,
+        height: 1.5
       ),
       // Theme.of(context).textTheme.subtitle1!.copyWith(
       //     ),

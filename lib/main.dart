@@ -1,4 +1,5 @@
 import 'package:el_mola/helper/appTheme.dart';
+import 'package:el_mola/helper/get_binding.dart';
 import 'package:el_mola/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Elmola',
+      initialBinding: GetBinding(),
       locale: const Locale("ar", "SA"),
       theme: AppTheme.themeData,
       home: const SplashScreen(),

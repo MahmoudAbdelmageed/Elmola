@@ -17,8 +17,9 @@ class AppBarWidget extends StatelessWidget with PreferredSizeWidget{
       backgroundColor: AppTheme.primaryColor,
       leading: InkWell(
           onTap: ()=> Get.back(),
-          child: SvgPicture.asset('assets/icons/ic_back.svg', color: Colors.white),),
-      title: AppText(title!, fontSize: 22, color: Colors.black, fontWeight: FontWeight.w800, centerText: true,),
+          child: const Icon(Icons.arrow_back_ios, color: Colors.white,)),
+          // child: SvgPicture.asset('assets/icons/ic_back.svg', color: Colors.white),),
+      title: AppText(title!, fontSize: 18, color: Colors.white, fontWeight: FontWeight.bold, centerText: true,),
       centerTitle: true,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(

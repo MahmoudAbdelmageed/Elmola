@@ -1,9 +1,12 @@
+import 'package:el_mola/controllers/home_controller.dart';
 import 'package:el_mola/helper/appTheme.dart';
+import 'package:el_mola/models/category.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CategoryWidget extends StatelessWidget {
-  const CategoryWidget({Key? key, required this.index}) : super(key: key);
+  const CategoryWidget({Key? key, required this.index,}) : super(key: key);
   final int index;
 
   @override

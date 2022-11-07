@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppElevatedButton extends StatelessWidget {
   final String text;
@@ -26,7 +27,7 @@ class AppElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        textStyle: TextStyle(fontFamily: fontFamily, fontSize: fontSize, fontWeight: fontWeight),
+        textStyle: GoogleFonts.tajawal(fontSize: fontSize, fontWeight: fontWeight,),
         primary: backgroundColor ?? Theme.of(context).primaryColor, //background color
         onPrimary: textColor ?? Colors.white,
         elevation: 2.0,

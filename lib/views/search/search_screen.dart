@@ -14,26 +14,31 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
       appBar: const AppBarWidget(title: "البحث", radius: 16.0,),
       
-      body: Column(
-        children: [
-          const AppText("نتيجة بحث (6 كتب)", color: AppTheme.greyTxtColor, fontSize: 16,),
-          Expanded(
-            child:  GridView.builder(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              scrollDirection: Axis.vertical,
-              itemCount: 6,
-              physics: const BouncingScrollPhysics(),
-              gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
-                  childAspectRatio: 1),
-              itemBuilder: (BuildContext context, int index) {
-                return BookItemWidget(index: index,);
-              },
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // const SearchField(),
+            const AppText("نتيجة بحث (6 كتب)", color: AppTheme.greyTxtColor, fontSize: 16,),
+            Expanded(
+              child:  GridView.builder(
+                padding: const EdgeInsets.symmetric(vertical: 16.0,horizontal: 2.0),
+                scrollDirection: Axis.vertical,
+                itemCount: 6,
+                physics: const BouncingScrollPhysics(),
+                gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 12,
+                    crossAxisSpacing: 12,
+                    childAspectRatio: 0.7),
+                itemBuilder: (BuildContext context, int index) {
+                  return BookItemWidget(index: index,);
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

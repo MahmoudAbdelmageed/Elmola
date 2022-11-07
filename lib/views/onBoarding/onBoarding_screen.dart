@@ -1,5 +1,6 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:el_mola/helper/appTheme.dart';
+import 'package:el_mola/helper/get_binding.dart';
 import 'package:el_mola/views/home/home_screen.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/gestures.dart';
@@ -93,7 +94,7 @@ class OnBoardingScreen extends StatelessWidget {
         // SvgPicture.asset("assets/icons/search.svg", color: Colors.white, height: 20.0, width: 20.0,
         //   allowDrawingOutsideViewBox: true,),
         InkWell(
-            onTap: ()=> Get.off(()=> const HomeScreen()),
+            onTap: ()=> Get.off(()=> const HomeScreen(), binding: GetBinding()),
             child: const Icon(Icons.arrow_forward, color: Colors.white)),
       ],
     );

@@ -1,7 +1,6 @@
 class CategoryModel{
-  String categoryName;
-  String categoryImg;
-  int categoryQty;
+  String? id;
+  String? title;
 
-  CategoryModel(this.categoryName, this.categoryImg, this.categoryQty);
+  CategoryModel({this.id, this.title});
 }

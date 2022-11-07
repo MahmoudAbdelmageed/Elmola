@@ -12,11 +12,12 @@ class AppTheme {
   static const Color titleBlackColor = Color(0xff1a201d);
   static const Color backgroundColor = Color(0xffffffff);
   static const Color greyTxtColor = Color(0xff8c8c8c);
+  static const Color greyRegularColor = Color(0xffabadac);
   static const Color lightGreyColor = Color(0xffd6d6d6);
   static const Color errorColor = Color(0xffB3171C);
   static const Color dividerColor = Color(0xffE3E3E3);
   static const Color blackColor = Colors.black;
-  static const Color _iconsColor = Colors.black38;
+  static const Color _iconsColor = Colors.white;
 
   static final themeData = ThemeData(
       primaryColor: primaryColor,
@@ -26,10 +27,10 @@ class AppTheme {
       progressIndicatorTheme: const ProgressIndicatorThemeData(color: primaryColor),
       appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(color: _iconsColor),
-        backgroundColor: Colors.white,
+        backgroundColor: primaryColor,
         centerTitle: true,
         elevation: 0,
-        titleTextStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),
+        titleTextStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
       ),
       iconTheme: const IconThemeData(color: primaryColor),
       elevatedButtonTheme: ElevatedButtonThemeData(

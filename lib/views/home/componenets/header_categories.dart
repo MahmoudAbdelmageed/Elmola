@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 class HeaderCategoriesWidget extends StatelessWidget {
   HeaderCategoriesWidget({Key? key}) : super(key: key);
 
-  List<CategoryModel> categoriesList = [
-    CategoryModel('Chairs', "assets/images/category1.jpg", 356),
-    CategoryModel('Lighting', "assets/images/category2.jpg", 356),
-    CategoryModel('Pillows', "assets/images/category3.jpg", 356),
-    CategoryModel('Tabletop', "assets/images/category4.jpg", 356),
+  List<String> headers = [
+    "assets/images/category1.jpg",
+    "assets/images/category2.jpg",
+    "assets/images/category3.jpg",
+    "assets/images/category4.jpg",
   ];
 
   @override
@@ -21,7 +21,7 @@ class HeaderCategoriesWidget extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return categoryCard(index);
         },
-        itemCount: categoriesList.length,
+        itemCount: headers.length,
         viewportFraction: 0.5,
         scale: 0.6,
         loop: true,
@@ -41,7 +41,7 @@ class HeaderCategoriesWidget extends StatelessWidget {
           width: double.infinity,
           height: 180.0,
           child: Image.asset(
-            categoriesList[index].categoryImg,
+            headers[index],
             fit: BoxFit.fill,
           ),
         ),
