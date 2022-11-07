@@ -10,6 +10,7 @@ class HomeController extends GetxController{
     CategoryModel(id: "3", title: 'ادعية'),
     CategoryModel(id: "4", title: 'لغة عربية'),
     CategoryModel(id: "5", title: 'سيرة نبوية'),
+    // CategoryModel(id: "5", title: 'سيرة نبوية'),
   ];
 
   List<CategoryModel> selectedCategories = [];
