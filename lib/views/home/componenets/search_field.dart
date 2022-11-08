@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:el_mola/controllers/home_controller.dart';
 import 'package:el_mola/helper/appTheme.dart';
 import 'package:el_mola/views/search/search_screen.dart';
@@ -27,9 +29,7 @@ class SearchField extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: InkWell(
-              onTap: ()=> Get.to(()=> const SearchScreen()),
-              child: Container(
+            child: Container(
                 height: 50,
                 margin: const EdgeInsets.symmetric(horizontal: 28),
                 alignment: Alignment.center,
@@ -46,28 +46,29 @@ class SearchField extends StatelessWidget {
                   ],
                 ),
                 child: TextField(
-                  enabled: false,
+                  enabled: true,
                   decoration: InputDecoration(
                     // contentPadding: EdgeInsets.zero,
                     // isDense: true,
                     // counter: Offstage(),
                     border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
                     enabledBorder: InputBorder.none,
                     disabledBorder: InputBorder.none,
                     suffixIcon: InkWell(
                         onTap: (){
+                          log("filter icon clicked..");
                           showModalBottomSheet(
                             context: context,
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
                             builder: (BuildContext context) {
-                              return ModelBottomSheet(child: _buildFilterBottomSheet(), sheetHeight: Get.height*0.7,);
+                              return ModelBottomSheet(child: _buildFilterBottomSheet(), sheetHeight: Get.height*0.75,);
                             },
                           );
                         },
-                        child: const Icon(Icons.filter_alt_outlined, color: AppTheme.lightGreyColor,)),
-                    // suffixIcon: SvgPicture.asset("assets/icons/filter.svg", color: AppTheme.lightGreyColor, width: 18,height: 18,),
-                    prefixIcon: const Icon(Icons.search, color: AppTheme.lightGreyColor),
+                        child: Image.asset("assets/icons/filter.png", width: 20, height: 20, color: AppTheme.lightGreyColor,)),
+                    prefixIcon: Image.asset("assets/icons/search.png", width: 20, height: 20, color: AppTheme.lightGreyColor,),
                     // prefixIcon: SvgPicture.asset("assets/icons/search.svg", color: AppTheme.lightGreyColor, width: 18,height: 18,),
                     hintText: 'ابحث هنا...', fillColor: Colors.transparent,
                     filled: true,
@@ -75,7 +76,6 @@ class SearchField extends StatelessWidget {
                 ),
               ),
             ),
-          ),
         ],
       ),
     );
@@ -91,7 +91,7 @@ class SearchField extends StatelessWidget {
             const Center(child: AppText("تصفية النتائج", fontSize: 24, color: Colors.black, fontWeight: FontWeight.bold,)),
             const SizedBox(height: 16,),
             const AppText("التصنيف", fontSize: 18, color: Colors.black),
-            const SizedBox(height: 16,),
+            const SizedBox(height: 6,),
             Expanded(
               child: GridView.builder(
                 scrollDirection: Axis.vertical,
@@ -108,7 +108,7 @@ class SearchField extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(height: 16,),
+            const SizedBox(height: 8,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const[
@@ -119,7 +119,7 @@ class SearchField extends StatelessWidget {
                 AppText("كتاب", fontSize: 18, color: AppTheme.greyRegularColor),
               ],
             ),
-            const SizedBox(height: 16,),
+            const SizedBox(height: 10,),
             SizedBox(
               width: double.infinity,
               child: AppElevatedButton(

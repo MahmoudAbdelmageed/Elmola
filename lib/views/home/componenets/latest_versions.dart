@@ -1,16 +1,17 @@
 import 'package:el_mola/views/home/componenets/horizontal_book_widget.dart';
+import 'package:el_mola/views/latest_versions/latest_versions_screen.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class LatestReleases extends StatelessWidget {
-  const LatestReleases({Key? key}) : super(key: key);
+class LatestVersions extends StatelessWidget {
+  const LatestVersions({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
         children: [
           _header(),
-
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
@@ -27,8 +28,10 @@ class LatestReleases extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: const[
-        AppText("أحدث الإصدارات", color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold,),
+      children: [
+        InkWell(
+            onTap: ()=> Get.to(()=> const LatestVersionsScreen()),
+            child:const  AppText("أحدث الإصدارات", color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold,)),
       ],
     );
   }

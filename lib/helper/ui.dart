@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 
 class Ui {
-  static GetBar SuccessSnackBar({String title = 'Success', required String message}) {
+  static GetBar successSnackBar({String title = 'Success', required String message}) {
     Get.log("[$title] $message");
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.headline6!.copyWith(color: Colors.black,)),
@@ -19,7 +18,7 @@ class Ui {
     );
   }
 
-  static GetBar ErrorSnackBar({String title = 'Error', required String message}) {
+  static GetBar errorSnackBar({String title = 'Error', required String message}) {
     Get.log("[$title] $message", isError: true);
     return GetBar(
       titleText: Text(title.tr, style: Get.textTheme.headline6!.copyWith(color: Colors.black,)),
@@ -38,8 +37,8 @@ class Ui {
   static GetBar defaultSnackBar({String title = 'Alert', required String message}) {
     Get.log("[$title] $message", isError: false);
     return GetBar(
-      titleText: Text(title.tr, style: Get.textTheme.headline6!.merge(TextStyle(color: Colors.black))),
-      messageText: Text(message, style: Get.textTheme.caption!.merge(TextStyle(color: Colors.black87))),
+      titleText: Text(title.tr, style: Get.textTheme.headline6!.merge(const TextStyle(color: Colors.black))),
+      messageText: Text(message, style: Get.textTheme.caption!.merge(const TextStyle(color: Colors.black87))),
       snackPosition: SnackPosition.BOTTOM,
       margin:const EdgeInsets.all(20),
       backgroundColor: Colors.grey.shade200,
@@ -54,13 +53,13 @@ class Ui {
   static List<Icon> getStarsList(double rate, {double size = 18}) {
     var list = <Icon>[];
     list = List.generate(rate.floor(), (index) {
-      return Icon(Icons.star, size: size, color: Color(0xFFFFB24D));
+      return Icon(Icons.star, size: size, color: const Color(0xFFFFB24D));
     });
     if (rate - rate.floor() > 0) {
-      list.add(Icon(Icons.star_half, size: size, color: Color(0xFFFFB24D)));
+      list.add(Icon(Icons.star_half, size: size, color:const Color(0xFFFFB24D)));
     }
     list.addAll(List.generate(5 - rate.floor() - (rate - rate.floor()).ceil(), (index) {
-      return Icon(Icons.star_border, size: size, color: Color(0xFFFFB24D));
+      return Icon(Icons.star_border, size: size, color: const Color(0xFFFFB24D));
     }));
     return list;
   }

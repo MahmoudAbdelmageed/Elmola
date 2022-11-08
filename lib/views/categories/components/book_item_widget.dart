@@ -24,11 +24,11 @@ class BookItemWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              width: double.infinity,
+            Expanded(
+              // width: double.infinity,
               child: ClipRRect(
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(8.0)),
-                child: Image.asset("assets/images/category2.jpg", height: 160, fit: BoxFit.fill,),
+                child: Image.asset("assets/images/category2.jpg", width: double.infinity, height: 160, fit: BoxFit.fill,),
               ),
             ),
             const SizedBox(height: 6,),

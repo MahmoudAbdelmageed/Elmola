@@ -1,5 +1,6 @@
 import 'package:el_mola/helper/appTheme.dart';
 import 'package:el_mola/views/categories/components/book_item_widget.dart';
+import 'package:el_mola/views/home/componenets/search_field.dart';
 import 'package:el_mola/widgets/app_bar_widget.dart';
 import 'package:el_mola/widgets/app_buttons/app_elevated_button.dart';
 import 'package:el_mola/widgets/app_text.dart';
@@ -12,18 +13,20 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: "البحث", radius: 16.0,),
+      appBar: const AppBarWidget(title: "البحث",),
       
-      body: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
+      body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // const SearchField(),
-            const AppText("نتيجة بحث (6 كتب)", color: AppTheme.greyTxtColor, fontSize: 16,),
+            const SearchField(),
+            const SizedBox(height: 16.0,),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.0),
+              child:  AppText("نتيجة بحث (6 كتب)", color: AppTheme.greyTxtColor, fontSize: 16,),
+            ),
             Expanded(
               child:  GridView.builder(
-                padding: const EdgeInsets.symmetric(vertical: 16.0,horizontal: 2.0),
+                padding: const EdgeInsets.all(16.0),
                 scrollDirection: Axis.vertical,
                 itemCount: 6,
                 physics: const BouncingScrollPhysics(),
@@ -31,7 +34,7 @@ class SearchScreen extends StatelessWidget {
                     crossAxisCount: 2,
                     mainAxisSpacing: 12,
                     crossAxisSpacing: 12,
-                    childAspectRatio: 0.7),
+                    childAspectRatio: 0.76),
                 itemBuilder: (BuildContext context, int index) {
                   return BookItemWidget(index: index,);
                 },
@@ -39,7 +42,6 @@ class SearchScreen extends StatelessWidget {
             ),
           ],
         ),
-      ),
     );
   }
 

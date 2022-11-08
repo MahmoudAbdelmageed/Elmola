@@ -2,13 +2,13 @@ import 'package:el_mola/views/categories/components/book_item_widget.dart';
 import 'package:el_mola/widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
-class LatestVersionsScreen extends StatelessWidget {
-  const LatestVersionsScreen({Key? key}) : super(key: key);
+class MostReadScreen extends StatelessWidget {
+  const MostReadScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarWidget(title: "أحدث الإصدارات", radius: 16.0,),
+      appBar: const AppBarWidget(title: "الأكثر قراءة", radius: 16.0,),
 
       body: GridView.builder(
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),

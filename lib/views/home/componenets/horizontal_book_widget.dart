@@ -1,4 +1,3 @@
-import 'package:el_mola/helper/appTheme.dart';
 import 'package:el_mola/views/book_details/book_details_screen.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
