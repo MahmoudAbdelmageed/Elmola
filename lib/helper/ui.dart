@@ -85,7 +85,6 @@ class Ui {
     }
   }
 
-
   static bool isDesktop(BoxConstraints constraint) {
     return constraint.maxWidth >= 1280;
   }

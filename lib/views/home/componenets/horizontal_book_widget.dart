@@ -3,17 +3,19 @@ import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class HorizontalBookWidget extends StatelessWidget {
-  const HorizontalBookWidget({Key? key, required this.index}) : super(key: key);
-  final int index;
+import '../../../models/books_model.dart';
 
+class HorizontalBookWidget extends StatelessWidget {
+  final BooksModel booksObject;
+  HorizontalBookWidget({required this.booksObject});
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return InkWell(
-      onTap: ()=> Get.to(()=> const BookDetailsScreen()),
+      onTap: ()=> Get.to(()=>  BookDetailsScreen(booksObject: booksObject,)),
       child: Container(
         width: size.width * 0.35,
+        height: size.height * .3,
         margin: const EdgeInsets.symmetric(horizontal: 6.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -26,14 +28,14 @@ class HorizontalBookWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 6,),
-            const AppText(
-              "الدعوة التامة",
+             AppText(
+              booksObject.name!,
               color: Colors.black,
               fontSize: 16.0,
               fontWeight: FontWeight.bold,
             ),
-            const AppText(
-              'فقه',
+             AppText(
+              booksObject.category!,
               color: Colors.black54,
               fontSize: 14.0,
             ),

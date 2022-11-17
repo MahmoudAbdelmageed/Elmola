@@ -16,7 +16,7 @@ class AppText extends StatelessWidget {
     this.text, {
     this.color,
     this.centerText = false,
-    this.maxLines = 1,
+    this.maxLines = 3,
     this.fontSize = 14,
     this.fontWeight = FontWeight.w500,
     this.fontFamily = "Cairo",

@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 0.0,
         // bottom: _searchField(),
       ),
-      drawer: const MainDrawer(),
+      drawer:  MainDrawer(),
       body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

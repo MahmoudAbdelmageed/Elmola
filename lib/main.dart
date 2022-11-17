@@ -5,8 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import 'helper/cache_helper.dart';
+
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -15,6 +19,7 @@ void main() async{
     const SystemUiOverlayStyle(
       statusBarColor: AppTheme.primaryColor,
     ),
+
   );
   runApp(const MyApp());
 }

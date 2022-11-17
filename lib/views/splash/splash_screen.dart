@@ -2,6 +2,9 @@ import 'package:el_mola/helper/get_binding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../helper/cache_helper.dart';
+import '../../helper/paths.dart';
+import '../home/home_screen.dart';
 import '../onBoarding/onBoarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,13 +18,14 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
+    onBoardingSeen = CacheHelper.getData(key: "onBoardingSeen");
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
       // LocalStorage.isLoggedIn
       //     ? Get.to(() => const HomeScreen(), binding: GetBinding())
       //     : Get.to(() => const LoginScreen());
-      Get.off(() => const OnBoardingScreen());
+      Get.off(() => onBoardingSeen?const HomeScreen():const OnBoardingScreen());
     });
   }
 

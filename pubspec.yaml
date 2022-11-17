@@ -47,10 +47,11 @@ dependencies:
   google_fonts: ^3.0.1
   card_swiper: ^2.0.4
   # PDF Viewer
-  syncfusion_flutter_pdf: ^20.3.48
+ # syncfusion_flutter_pdf: ^20.3.48
   # review
   launch_review: ^3.0.1
-
+  flutter_cached_pdfview:
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/pdf/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -4,6 +4,8 @@ import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../controllers/new_list.dart';
+
 class LatestVersions extends StatelessWidget {
   const LatestVersions({Key? key}) : super(key: key);
 
@@ -11,21 +13,7 @@ class LatestVersions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
         children: [
-          _header(),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            padding: const EdgeInsets.all(4.0),
-            child: Row(
-                children: List.generate(4, (index) => HorizontalBookWidget(index: index,)).toList(),
-            ),
-          )
-        ],
-    );
-  }
-
-  Widget _header(){
-    return Row(
+      Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -33,6 +21,18 @@ class LatestVersions extends StatelessWidget {
             onTap: ()=> Get.to(()=> const LatestVersionsScreen()),
             child:const  AppText("أحدث الإصدارات", color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold,)),
       ],
+    ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(4.0),
+            child: Row(
+              children: List.generate(newList.length, (index) => HorizontalBookWidget(booksObject: newList[index],)).toList(),
+            ),
+          )
+        ],
     );
   }
+
+
 }
