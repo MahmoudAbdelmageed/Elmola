@@ -8,7 +8,6 @@ import 'package:get/get.dart';
 
 import 'componenets/drawer.dart';
 import 'componenets/header_categories.dart';
-import 'componenets/search_field.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);

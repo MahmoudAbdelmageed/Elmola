@@ -1,4 +1,3 @@
-import 'package:el_mola/models/category.dart';
 import 'package:el_mola/views/categories/components/book_item_widget.dart';
 import 'package:el_mola/widgets/app_bar_widget.dart';
 import 'package:flutter/material.dart';

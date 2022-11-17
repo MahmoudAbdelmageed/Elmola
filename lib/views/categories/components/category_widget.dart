@@ -1,13 +1,7 @@
-import 'package:el_mola/controllers/home_controller.dart';
-import 'package:el_mola/helper/appTheme.dart';
 import 'package:el_mola/helper/navigation_helper.dart';
-import 'package:el_mola/models/category.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../../controllers/books_list.dart';
-import '../../../models/books_model.dart';
 import '../categories_book_screen.dart';
 
 class CategoryWidget extends StatefulWidget {

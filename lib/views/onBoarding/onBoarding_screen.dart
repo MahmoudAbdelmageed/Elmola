@@ -1,15 +1,9 @@
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:el_mola/helper/appTheme.dart';
 import 'package:el_mola/helper/cache_helper.dart';
-import 'package:el_mola/helper/get_binding.dart';
 import 'package:el_mola/helper/navigation_helper.dart';
-import 'package:el_mola/helper/paths.dart';
 import 'package:el_mola/views/home/home_screen.dart';
 import 'package:el_mola/widgets/app_text.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);

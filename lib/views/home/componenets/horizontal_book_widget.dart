@@ -3,6 +3,7 @@ import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../helper/paths.dart';
 import '../../../models/books_model.dart';
 
 class HorizontalBookWidget extends StatelessWidget {
@@ -24,7 +25,7 @@ class HorizontalBookWidget extends StatelessWidget {
               width: double.infinity,
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(6.0)),
-                child: Image.asset("assets/images/category2.jpg", height: 160, fit: BoxFit.fill,),
+                child: Image.asset( "$imagePath${booksObject.imagePath!}" , height: 160, fit: BoxFit.fill,),
               ),
             ),
             const SizedBox(height: 6,),

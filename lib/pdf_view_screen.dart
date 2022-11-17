@@ -1,6 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
 import 'helper/paths.dart';
 
@@ -36,7 +35,7 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
       appBar: AppBar(
         title: Text("Document"),
       ),
-      body:   PDF(
+      body: PDF(
         enableSwipe: true,
         swipeHorizontal: true,
         autoSpacing: false,

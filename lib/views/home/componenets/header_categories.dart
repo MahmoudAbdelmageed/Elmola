@@ -1,7 +1,6 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:el_mola/helper/navigation_helper.dart';
-import 'package:el_mola/models/category.dart';
-import 'package:el_mola/widgets/app_text.dart';
+import 'package:el_mola/helper/paths.dart';
 import 'package:flutter/material.dart';
 
 import '../../../controllers/header_list.dart';
@@ -10,12 +9,12 @@ import '../../book_details/book_details_screen.dart';
 class HeaderCategoriesWidget extends StatelessWidget {
   HeaderCategoriesWidget({Key? key}) : super(key: key);
 
-  List<String> headers = [
-    "assets/images/category1.jpg",
-    "assets/images/category2.jpg",
-    "assets/images/category3.jpg",
-    "assets/images/category4.jpg",
-  ];
+  // List<String> headers = [
+  //   "assets/images/category1.jpg",
+  //   "assets/images/category2.jpg",
+  //   "assets/images/category3.jpg",
+  //   "assets/images/category4.jpg",
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class HeaderCategoriesWidget extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return categoryCard(index,context);
         },
-        itemCount: headers.length,
+        itemCount: headerList.length,
         viewportFraction: 0.5,
         scale: 0.6,
         loop: true,
@@ -49,7 +48,7 @@ class HeaderCategoriesWidget extends StatelessWidget {
             width: double.infinity,
             height: 180.0,
             child: Image.asset(
-              headers[index],
+             "$imagePath${headerList[index].imagePath!}" ,
               fit: BoxFit.fill,
             ),
           ),

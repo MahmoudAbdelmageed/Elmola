@@ -1,9 +1,6 @@
-import 'dart:developer';
-
 import 'package:el_mola/helper/appTheme.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class AppBarWidget extends StatelessWidget with PreferredSizeWidget{

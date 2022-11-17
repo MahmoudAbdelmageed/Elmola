@@ -20,12 +20,11 @@ class BookDetailsScreen extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            
             Stack(
               clipBehavior: Clip.none,
               children: [
                 AspectRatio(
-                    aspectRatio: 0.9,
+                    aspectRatio: 0.88,
                     child: Image.asset(
                       "$imagePath${booksObject.imagePath}",
                       fit: BoxFit.fill,

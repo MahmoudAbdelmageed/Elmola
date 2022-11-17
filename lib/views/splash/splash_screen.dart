@@ -1,4 +1,3 @@
-import 'package:el_mola/helper/get_binding.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    onBoardingSeen = CacheHelper.getData(key: "onBoardingSeen");
+    onBoardingSeen = CacheHelper.getData(key: "onBoardingSeen")??false;
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
