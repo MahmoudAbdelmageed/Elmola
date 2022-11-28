@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:el_mola/helper/navigation_helper.dart';
 import 'package:el_mola/views/book_details/book_details_screen.dart';
 import 'package:el_mola/widgets/app_text.dart';
@@ -33,7 +34,7 @@ class BookItemWidget extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius:  BorderRadius.circular(8),
-              child: Image.asset("$imagePath${booksObject.imagePath}", width: double.infinity,fit: BoxFit.fill,),
+              child: CachedNetworkImage(imageUrl: booksObject.imagePath!, width: double.infinity,fit: BoxFit.fill,),
             ),
             const SizedBox(height: 6,),
             Padding(

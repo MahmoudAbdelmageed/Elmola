@@ -259,8 +259,13 @@ class _SearchScreenState extends State<SearchScreen> {
                                               ),
                                               InkWell(
                                                 onTap: () {
-                                                  stateSetter(
-                                                      () => filterList.clear());
+                                                  stateSetter((){
+                                                    filterList.clear();
+                                                    searchList.clear();
+                                                  });
+
+
+
                                                 },
                                                 child: const Padding(
                                                   padding: EdgeInsets.only(
@@ -332,7 +337,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     crossAxisCount: 2,
                     mainAxisSpacing: 12,
                     crossAxisSpacing: 12,
-                    childAspectRatio: 0.5),
+                    childAspectRatio: 0.47),
                 itemBuilder: (BuildContext context, int index) {
                   return BookItemWidget(
                     booksObject: searchList[index],

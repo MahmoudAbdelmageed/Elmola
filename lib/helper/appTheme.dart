@@ -23,7 +23,8 @@ class AppTheme {
       primaryColor: primaryColor,
       focusColor: primaryColor,
       scaffoldBackgroundColor: backgroundColor,
-      fontFamily: GoogleFonts.tajawal().fontFamily,
+      fontFamily: "tw",
+
       progressIndicatorTheme: const ProgressIndicatorThemeData(color: primaryColor),
       appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(color: _iconsColor),

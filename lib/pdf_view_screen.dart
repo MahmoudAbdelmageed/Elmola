@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
-import 'helper/paths.dart';
-
 class PDFScreen extends StatefulWidget {
   final String? path;
 
@@ -37,9 +35,10 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
       ),
       body: PDF(
         enableSwipe: true,
-        swipeHorizontal: true,
+        swipeHorizontal: false,
         autoSpacing: false,
         pageFling: false,
+
         onError: (error) {
           print(error.toString());
         },
@@ -47,7 +46,7 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
           print('$page: ${error.toString()}');
         },
 
-      ).fromAsset('$pdfPath${widget.path}'),
+      ).cachedFromUrl(widget.path!),
 
       // floatingActionButton: FutureBuilder<PDFViewController>(
       //   future: _controller.future,

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:el_mola/helper/navigation_helper.dart';
 import 'package:el_mola/helper/paths.dart';
@@ -19,14 +20,14 @@ class HeaderCategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 220.0,
+      height: MediaQuery.of(context).size.height*.35,
       child: Swiper(
         itemBuilder: (BuildContext context, int index) {
           return categoryCard(index,context);
         },
         itemCount: headerList.length,
-        viewportFraction: 0.5,
-        scale: 0.6,
+        viewportFraction: 0.49,
+        scale: 0.7,
         loop: true,
         autoplay: false,
       ),
@@ -47,9 +48,9 @@ class HeaderCategoriesWidget extends StatelessWidget {
           child: SizedBox(
             width: double.infinity,
             height: 180.0,
-            child: Image.asset(
-             "$imagePath${headerList[index].imagePath!}" ,
+            child: CachedNetworkImage(
               fit: BoxFit.fill,
+              imageUrl: headerList[index].imagePath!,
             ),
           ),
         ),

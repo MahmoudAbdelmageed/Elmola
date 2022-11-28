@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:el_mola/helper/appTheme.dart';
 import 'package:el_mola/helper/navigation_helper.dart';
 import 'package:el_mola/widgets/app_text.dart';
@@ -15,7 +16,6 @@ class BookDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("$imagePath${booksObject.imagePath}");
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -25,12 +25,27 @@ class BookDetailsScreen extends StatelessWidget {
               children: [
                 AspectRatio(
                     aspectRatio: 0.88,
-                    child: Image.asset(
-                      "$imagePath${booksObject.imagePath}",
-                      fit: BoxFit.fill,
-                      width: double.infinity,
-                      height: double.infinity,
-
+                    child: Stack(
+                      children: [
+                        CachedNetworkImage(
+                          imageUrl: booksObject.imagePath!,
+                          fit: BoxFit.fill,
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(16),
+                          child: IconButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              icon:const Icon(
+                                Icons.chevron_left_rounded,
+                                size: 36,
+                                color: AppTheme.brownColor,
+                              )),
+                        )
+                      ],
                     )),
                 Positioned(
                     left: 48.0,
@@ -39,11 +54,17 @@ class BookDetailsScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         InkWell(
-                          onTap: (){
-                            NavigationClass.navigate(context, PDFScreen(path: booksObject.pdfPath,));
-                        //    print("$pdfPath${booksObject.pdfPath}");
+                          onTap: () {
+                            NavigationClass.navigate(
+                                context,
+                                PDFScreen(
+                                  path: booksObject.pdfPath,
+                                ));
+                            //    print("$pdfPath${booksObject.pdfPath}");
                           },
                           child: Container(
+                            width: 40,
+                            height: 40,
                             padding: const EdgeInsets.all(6.0),
                             decoration: const BoxDecoration(
                               shape: BoxShape.circle,
@@ -65,13 +86,13 @@ class BookDetailsScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   AppText(
+                  AppText(
                     booksObject.name!,
                     color: Colors.black,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
-                   AppText(
+                  AppText(
                     booksObject.writerName!,
                     color: AppTheme.greyTxtColor,
                     fontSize: 16,
@@ -79,10 +100,14 @@ class BookDetailsScreen extends StatelessWidget {
                   const SizedBox(height: 6.0),
                   Row(
                     children: [
-                      SvgPicture.asset("assets/icons/category.svg",
-                          color: Color(0xffdc9e4c),),
-                     const  SizedBox(width: 4,),
-                       AppText(
+                      SvgPicture.asset(
+                        "assets/icons/category.svg",
+                        color: Color(0xffdc9e4c),
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      AppText(
                         booksObject.category!,
                         color: Color(0xffdc9e4c),
                         fontSize: 16,
