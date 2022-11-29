@@ -53,6 +53,10 @@ dependencies:
   flutter_cached_pdfview:
   shared_preferences: ^2.0.15
   flutter_launcher_icons:
+  path_provider_android: ^2.0.12
+  flutter_downloader: ^1.9.1
+  permission_handler: ^10.0.2
+  path_provider: ^2.0.9
 
 dev_dependencies:
   flutter_test:
