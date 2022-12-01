@@ -24,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // LocalStorage.isLoggedIn
       //     ? Get.to(() => const HomeScreen(), binding: GetBinding())
       //     : Get.to(() => const LoginScreen());
-      Get.off(() => onBoardingSeen?const HomeScreen():const OnBoardingScreen());
+      Get.off(() => onBoardingSeen? HomeScreen():const OnBoardingScreen());
     });
   }
 

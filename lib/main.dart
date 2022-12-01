@@ -20,7 +20,7 @@ void main() async{
   ]);
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      statusBarColor: AppTheme.primaryColor,
+      statusBarColor:Colors.transparent,
     ),
 
   );

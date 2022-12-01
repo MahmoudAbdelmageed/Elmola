@@ -34,6 +34,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
 
   int progress = 0;
   String? taskId;
+  bool dialoShow=false;
 
   @override
   void initState() {
@@ -57,9 +58,69 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
       setState(() {
         taskId = id;
         progress = progresss;
+        progress==100? {
+        downloading = false,
+        progress = 0,
+          dialoShow==true? null: showDialogFunc()
+      }
+        : print("jhdjhdfjhjdfhjdfhjdfhjfhjfghjfhjfg");
+
       });
     });
   }
+
+  showDialogFunc() async {
+
+    setState((){
+      dialoShow=true;
+    });
+    await showDialog(
+      context: context,
+      builder: (context) => Dialog(
+
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+          elevation: 16,
+          child: Container(
+            width: 390,
+            height: 252,
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(50)),
+              boxShadow: [
+                BoxShadow(
+                    color: Color(0x1a000000),
+                    offset: Offset(0, 0),
+                    blurRadius: 27,
+                    spreadRadius: 0)
+              ],
+              color: Color(0xffffffff),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Center(
+                  child: Icon(
+                    Icons.check,
+                    size: 60,
+                    color: Colors.red,
+                  ),
+                ),
+                Text("تم تحميل الملف بنجاح",
+                    style: const TextStyle(
+                        color: Color(0xff1a201d),
+                        fontWeight: FontWeight.w700,
+                        fontStyle: FontStyle.normal,
+                        fontSize: 24.0),
+                    textAlign: TextAlign.center),
+              ],
+            ),
+          ),
+
+      ),
+
+    );
+  }
+
 
   void _unbindBackgroundIsolate() {
     IsolateNameServer.removePortNameMapping('downloader_send_port');
@@ -145,7 +206,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                   clipBehavior: Clip.none,
                   children: [
                     AspectRatio(
-                        aspectRatio: 0.88,
+                        aspectRatio: 0.7,
                         child: Stack(
                           children: [
                             CachedNetworkImage(
@@ -205,6 +266,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
 
                                 setState(() {
                                   downloading = true;
+                                  dialoShow=false;
                                 });
                                 await FlutterDownloader.enqueue(
                                   url: widget.booksObject.pdfPath!,
@@ -212,13 +274,10 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                                   showNotification: true,
                                   openFileFromNotification: true,
                                   saveInPublicStorage: true,
-                                ).then((value) {
-                                  Timer(Duration(seconds: 4), () {
-                                    setState(() {
-                                      downloading = false;
-                                      progress = 0;
-                                    });
-                                  });
+                                ).then((v) {
+
+
+
                                 });
                               },
                               child: Container(
