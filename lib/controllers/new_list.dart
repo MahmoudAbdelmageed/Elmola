@@ -17,7 +17,7 @@ List<BooksModel> newList =[
       "https://mulla.hwzn.sa/pdf/%d9%88%d8%b3%d9%8a%d9%84%d8%a9%20%d8%a7%d9%84%d8%b1%d8%b6%d9%88%d8%a7%d9%86%20%d9%84%d8%ae%d8%aa%d9%85%20%d8%a7%d9%84%d9%82%d8%b1%d8%a7%d9%93%d9%86.pdf",
       imagePath:
       "https://mulla.hwzn.sa/image/%d9%88%d8%b3%d9%8a%d9%84%d8%a9%20%d8%a7%d9%84%d8%b1%d8%b6%d9%88%d8%a7%d9%86%20%d9%84%d8%ae%d8%aa%d9%85%20%d8%a7%d9%84%d9%82%d8%b1%d8%a7%d9%93%d9%86.jpg",
-      writerName: "أبي بكر بن الشيخ محمد بن الشيخ عمر الملا",
+      writerName: "العالم العلامة الشيخ أبي بكر بن الشيخ محمد بن الشيخ عمر الملا الحنفي الأحسائي المتوفى سنة ١٢٧٠ هـ تغمده الله برحمته الواسعة",
       category: category[3],
       latest: false,
       mostViewed: false),

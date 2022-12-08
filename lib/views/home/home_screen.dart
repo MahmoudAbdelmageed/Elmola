@@ -5,6 +5,7 @@ import 'package:el_mola/views/search/search_screen.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import 'componenets/drawer.dart';
@@ -65,7 +66,11 @@ class HomeScreen extends StatelessWidget {
                         onTap: (){
                           scaffold.currentState!.openDrawer();
                         },
-                        child: Icon(CupertinoIcons.decrease_indent,color: Colors.white,)),
+                        child:  SvgPicture.asset(
+                          "assets/icons/menu.svg",
+                          color: Colors.white,
+                          width: 22,
+                        ),),
                     SizedBox(width: MediaQuery.of(context).size.width*.26,),
                     AppText('الرئيسية', color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold,),
                   ],
