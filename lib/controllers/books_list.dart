@@ -225,12 +225,22 @@ List<BooksModel> bookList = [
       latest: false,
       mostViewed: false),
   BooksModel(
-      name: "سلم الميرد في لمعرفة احكام التجويد",
+      name: "سلم المريد لمعرفة احكام التجويد",
       pdfPath:
       "https://mulla.hwzn.sa/pdf/%d8%b3%d9%84%d9%85%20%d8%a7%d9%84%d9%85%d9%8a%d8%b1%d8%af%20%d9%81%d9%8a%20%d9%85%d8%b9%d8%b1%d9%81%d8%a9%20%d8%a7%d8%ad%d9%83%d8%a7%d9%85%20%d8%a7%d9%84%d8%aa%d8%ac%d9%88%d9%8a%d8%af.pdf",
       imagePath:
       "https://mulla.hwzn.sa/image/%d8%b3%d9%84%d9%85%20%d8%a7%d9%84%d9%85%d9%8a%d8%b1%d8%af%20%d9%81%d9%8a%20%d9%85%d8%b9%d8%b1%d9%81%d8%a9%20%d8%a7%d8%ad%d9%83%d8%a7%d9%85%20%d8%a7%d9%84%d8%aa%d8%ac%d9%88%d9%8a%d8%af.jpg",
       writerName: "الشيخ محمد بن الشيخ أبي بكر الملا",
+      category: category[5],
+      latest: false,
+      mostViewed: false),
+  BooksModel(
+      name: "سلم المريد لمعرفة احكام التجويد",
+      pdfPath:
+      "https://mulla.hwzn.sa/pdf/%d8%b3%d9%84%d9%85%20%d8%a7%d9%84%d9%85%d8%b1%d9%8a%d8%af%20%d9%84%d9%85%d8%b9%d8%b1%d9%81%d8%a9%20%d8%a7%d9%94%d8%ad%d9%83%d8%a7%d9%85%20%d8%a7%d9%84%d8%aa%d8%ac%d9%88%d9%8a%d8%af.pdf",
+      imagePath:
+      "https://mulla.hwzn.sa/image/%d8%b3%d9%84%d9%85%20%d8%a7%d9%84%d9%85%d8%b1%d9%8a%d8%af%20%d9%84%d9%85%d8%b9%d8%b1%d9%81%d8%a9%20%d8%a7%d9%94%d8%ad%d9%83%d8%a7%d9%85%20%d8%a7%d9%84%d8%aa%d8%ac%d9%88%d9%8a%d8%af.jpg",
+      writerName: " للعلامة الشيخ محمد بن أبي بكر الملا",
       category: category[5],
       latest: false,
       mostViewed: false),

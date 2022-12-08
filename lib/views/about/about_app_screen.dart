@@ -1,3 +1,4 @@
+import 'package:el_mola/helper/paths.dart';
 import 'package:el_mola/widgets/app_bar_widget.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
@@ -7,15 +8,28 @@ class AboutAppScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: AppBarWidget(title: "معلومات عن التطبيق", radius: 16.0, ),
+    return  Scaffold(
+        appBar: AppBarWidget(
+          title: "معلومات عن التطبيق",
+          radius: 16.0,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12),
+          child: ListView(
+            children: [
+              AppText(
+                "مكتبة الشيخ أبو بكر الملا",
+                centerText: true,
+                fontSize: 24,
+                maxLines: 1000,
+                fontWeight: FontWeight.bold,
+              ),
+              SizedBox(height: 12,),
+              Image.asset("assets/images/aboutapp.jpeg",fit: BoxFit.fill,)
+            ],
+          ),
+        )
 
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        padding: EdgeInsets.all(16.0),
-        physics: BouncingScrollPhysics(),
-        child: AppText("""هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء.""", fontSize: 16, maxLines: 1000,),
-      )
     );
   }
 }
