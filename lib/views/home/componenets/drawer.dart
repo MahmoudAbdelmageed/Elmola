@@ -33,7 +33,7 @@ class MainDrawer extends StatelessWidget {
     DrawerItemModel(title: "الرقائق و الأدب و الأذكار", function: () {
       Get.to(() => CategoriesBookScreen(catName: "الرقائق و الأدب و الأذكار",));
     }),
-    DrawerItemModel(title: "السيرة النبوية", function: () {
+    DrawerItemModel(title: "السيره النبوية", function: () {
       Get.to(() => CategoriesBookScreen(catName: "السيرة النبوية",));
     }),
     DrawerItemModel(title: "التراجم و التاريخ", function: () {

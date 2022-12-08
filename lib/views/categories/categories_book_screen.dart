@@ -19,6 +19,7 @@ class _CategoriesBookScreenState extends State<CategoriesBookScreen> {
 
   @override
   void initState() {
+    print(widget.catName);
     for(var book in bookList){
       if(book.category==widget.catName){
         catBookList.add(book);
@@ -39,7 +40,7 @@ class _CategoriesBookScreenState extends State<CategoriesBookScreen> {
             crossAxisCount: 2,
             mainAxisSpacing: 12,
             crossAxisSpacing: 12,
-            childAspectRatio: 0.5),
+            childAspectRatio: 0.47),
         itemBuilder: (BuildContext context, int index) {
           return BookItemWidget(booksObject: catBookList[index],);
         },
