@@ -12,7 +12,7 @@ void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   await FlutterDownloader.initialize(
-      debug: true // optional: set false to disable printing logs to console
+      debug: false // optional: set false to disable printing logs to console
   );
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

@@ -10,6 +10,7 @@ import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_downloader/flutter_downloader.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path_provider_android/path_provider_android.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -74,51 +75,63 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
     setState((){
       dialoShow=true;
     });
-    await showDialog(
-      context: context,
-      builder: (context) => Dialog(
 
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-          elevation: 16,
-          child: Container(
-            width: 390,
-            height: 252,
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(50)),
-              boxShadow: [
-                BoxShadow(
-                    color: Color(0x1a000000),
-                    offset: Offset(0, 0),
-                    blurRadius: 27,
-                    spreadRadius: 0)
-              ],
-              color: Color(0xffffffff),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Center(
-                  child: Icon(
-                    Icons.check,
-                    size: 60,
-                    color: Colors.red,
-                  ),
-                ),
-                Text("تم تحميل الملف بنجاح",
-                    style: const TextStyle(
-                        color: Color(0xff1a201d),
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.normal,
-                        fontSize: 24.0),
-                    textAlign: TextAlign.center),
-              ],
-            ),
-          ),
 
-      ),
-
+   await Fluttertoast.showToast(
+        msg: "تم تحميل الملف بنجاح",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.green,
+        textColor: Colors.white,
+        fontSize: 16.0
     );
+
+    // await showDialog(
+    //   context: context,
+    //   builder: (context) => Dialog(
+    //
+    //       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+    //       elevation: 16,
+    //       child: Container(
+    //         width: 390,
+    //         height: 252,
+    //         decoration: const BoxDecoration(
+    //           borderRadius: BorderRadius.all(Radius.circular(50)),
+    //           boxShadow: [
+    //             BoxShadow(
+    //                 color: Color(0x1a000000),
+    //                 offset: Offset(0, 0),
+    //                 blurRadius: 27,
+    //                 spreadRadius: 0)
+    //           ],
+    //           color: Color(0xffffffff),
+    //         ),
+    //         child: Column(
+    //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //           crossAxisAlignment: CrossAxisAlignment.center,
+    //           children: [
+    //             Center(
+    //               child: Icon(
+    //                 Icons.check,
+    //                 size: 60,
+    //                 color: Colors.red,
+    //               ),
+    //             ),
+    //             Text("تم تحميل الملف بنجاح",
+    //                 style: const TextStyle(
+    //                     color: Color(0xff1a201d),
+    //                     fontWeight: FontWeight.w700,
+    //                     fontStyle: FontStyle.normal,
+    //                     fontSize: 24.0),
+    //                 textAlign: TextAlign.center),
+    //           ],
+    //         ),
+    //       ),
+    //
+    //   ),
+    //
+    // );
   }
 
 
@@ -241,6 +254,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                                     context,
                                     PDFScreen(
                                       path: widget.booksObject.pdfPath,
+                                      bookName:widget.booksObject.name,
                                     ));
                                 //    print("$pdfPath${booksObject.pdfPath}");
                               },
@@ -346,7 +360,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                         opacity: .5,
                         child: Container(
                           width: double.infinity,
-                          color: Colors.red.withOpacity(.2),
+                          color: Colors.grey.withOpacity(.4),
                           height: MediaQuery.of(context).size.height * .755,
                         ),
                       ),

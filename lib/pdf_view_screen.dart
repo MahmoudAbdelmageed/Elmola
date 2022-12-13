@@ -3,8 +3,9 @@ import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';
 
 class PDFScreen extends StatefulWidget {
   final String? path;
+  final String? bookName;
 
-  PDFScreen({Key? key, this.path}) : super(key: key);
+  PDFScreen({Key? key, this.path,this.bookName}) : super(key: key);
 
   _PDFScreenState createState() => _PDFScreenState();
 }
@@ -15,7 +16,7 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Document"),
+        title: Text(widget.bookName!),
       ),
       body: PDF(
         enableSwipe: true,
@@ -30,7 +31,7 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
           print('$page: ${error.toString()}');
         },
 
-      ).cachedFromUrl(widget.path!),
+      ).fromUrl(widget.path!),
 
 
     );

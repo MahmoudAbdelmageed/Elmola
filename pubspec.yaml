@@ -57,6 +57,7 @@ dependencies:
   flutter_downloader: ^1.9.1
   permission_handler: ^10.0.2
   path_provider: ^2.0.9
+  fluttertoast:
 
 dev_dependencies:
   flutter_test:
