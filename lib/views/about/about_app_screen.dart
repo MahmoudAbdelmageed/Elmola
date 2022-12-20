@@ -1,4 +1,3 @@
-import 'package:el_mola/helper/paths.dart';
 import 'package:el_mola/widgets/app_bar_widget.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +8,7 @@ class AboutAppScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+      backgroundColor: Color(0xffCDC9CA),
         appBar: AppBarWidget(
           title: "معلومات عن التطبيق",
           radius: 16.0,
@@ -24,8 +24,8 @@ class AboutAppScreen extends StatelessWidget {
                 maxLines: 1000,
                 fontWeight: FontWeight.bold,
               ),
-              SizedBox(height: 12,),
-              Image.asset("assets/images/aboutapp.jpeg",fit: BoxFit.fill,)
+              SizedBox(height: MediaQuery.of(context).size.height*.2),
+              Center(child: Image.asset("assets/images/aboutapp.jpeg",fit: BoxFit.fill,width: MediaQuery.of(context).size.width*.7,))
             ],
           ),
         )

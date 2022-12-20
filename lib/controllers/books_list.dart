@@ -191,7 +191,7 @@ List<BooksModel> bookList = [
       imagePath:
       "https://mulla.hwzn.sa/image/%d8%b1%d9%81%d8%b9%20%d8%a7%d9%84%d9%84%d9%88%d9%85%20%d8%b9%d9%86%20%d9%85%d9%86%20%d8%a7%d8%b3%d8%aa%d8%ae%d8%a7%d8%b1%20%d9%84%d8%b9%d9%85%d9%84%20%d8%a7%d9%84%d9%84%d9%8a%d9%84%d8%a9%20%d9%88%d8%a7%d9%84%d9%8a%d9%88%d9%85.jpg",
       writerName: "العالم العلامة الشيخ الشيخ أبو بكر بن الشيخ محمدالملا الحنفي الأحسائي المتوفى سنة ١٢٧٠ هـ",
-      category: category[0],
+      category: category[3],
       latest: false,
       mostViewed: false),
   BooksModel(
@@ -221,7 +221,7 @@ List<BooksModel> bookList = [
       imagePath:
       "https://mulla.hwzn.sa/image/%d8%b3%d8%b1%d8%a7%d8%ac%20%d8%a7%d9%84%d8%b8%d9%84%d9%85%20%d9%81%d9%8a%20%d8%aa%d9%84%d8%ae%d9%8a%d8%b5%20%d8%a7%d9%84%d8%ad%d9%83%d9%85.jpg",
       writerName: "العلامة الشيخ أبي بكر بن الشيخ محمد بن عمر الملا الأحسائي المتوفى سنة ١٢٧٠ هـ",
-      category: category[0],
+      category: category[3],
       latest: false,
       mostViewed: false),
   BooksModel(

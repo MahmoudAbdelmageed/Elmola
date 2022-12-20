@@ -213,7 +213,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
       child: Scaffold(
         body: Stack(
           children: [
-            Column(
+            ListView(
               children: [
                 Stack(
                   clipBehavior: Clip.none,
