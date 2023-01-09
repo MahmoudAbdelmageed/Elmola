@@ -1,4 +1,4 @@
-package com.example.el_mola
+package com.hwzn.elMola
 
 import io.flutter.embedding.android.FlutterActivity
 

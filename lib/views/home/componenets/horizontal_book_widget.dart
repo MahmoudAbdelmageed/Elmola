@@ -16,7 +16,6 @@ class HorizontalBookWidget extends StatelessWidget {
       onTap: ()=> Get.to(()=>  BookDetailsScreen(booksObject: booksObject,)),
       child: Container(
         width: size.width * 0.35,
-        height: size.height * .345,
         margin: const EdgeInsets.symmetric(horizontal: 6.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,6 +23,7 @@ class HorizontalBookWidget extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ClipRRect(
+
                 borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                 child: CachedNetworkImage(imageUrl: booksObject.imagePath! , height: size.height * .24, fit: BoxFit.fill,),
               ),
