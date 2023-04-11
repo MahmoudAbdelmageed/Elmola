@@ -13,27 +13,32 @@ class LatestVersions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-        children: [
-      Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        InkWell(
-            onTap: ()=> Get.to(()=> const LatestVersionsScreen()),
-            child:const  AppText("أحدث الإصدارات", color: Colors.black, fontSize: 24, fontWeight: FontWeight.bold)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            InkWell(
+                onTap: () => Get.to(() => const LatestVersionsScreen()),
+                child: const AppText("أحدث الإصدارات",
+                    color: Colors.black,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold)),
+          ],
+        ),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          physics: const BouncingScrollPhysics(),
+          padding: const EdgeInsets.all(4.0),
+          child: Row(
+            children: List.generate(
+                newList.length,
+                (index) => HorizontalBookWidget(
+                      booksObject: newList[index],
+                    )).toList(),
+          ),
+        )
       ],
-    ),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            padding: const EdgeInsets.all(4.0),
-            child: Row(
-              children: List.generate(newList.length, (index) => HorizontalBookWidget(booksObject: newList[index],)).toList(),
-            ),
-          )
-        ],
     );
   }
-
-
 }

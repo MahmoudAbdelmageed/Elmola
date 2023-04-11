@@ -20,26 +20,6 @@ class HomeScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       key: scaffold,
-      // appBar: AppBar(
-      //   backgroundColor: AppTheme.primaryColor,
-      //
-      //   actions: [
-      //  Container(
-      //
-      //    width: 200,
-      //    child:    Image.asset("assets/images/appbar.png",fit: BoxFit.cover,),
-      //  )
-      //   ],
-      //   // leading: InkWell(
-      //   //     onTap: ()=> log("drawer menu clicked..."),
-      //   //     child: const Icon(Icons.menu, color: Colors.white)),
-      //   //     // child: SvgPicture.asset("assets/icons/menu.svg", color: Colors.white, width: 24, height: 24,)),
-      //   title: const AppText('الرئيسية', color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold,),
-      //   centerTitle: true,
-      //   titleSpacing: 0.0,
-      //   elevation: 0.0,
-      //   // bottom: _searchField(),
-      // ),
       drawer:  MainDrawer(),
       body: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,15 +81,11 @@ class HomeScreen extends StatelessWidget {
                 child: TextField(
                   enabled: false,
                   decoration: InputDecoration(
-                    // contentPadding: EdgeInsets.zero,
-                    // isDense: true,
-                    // counter: Offstage(),
                     border: InputBorder.none,
                     enabledBorder: InputBorder.none,
                     disabledBorder: InputBorder.none,
                     suffixIcon: Image.asset("assets/icons/filter.png", width: 20, height: 20, color: AppTheme.lightGreyColor,),
                     prefixIcon: Image.asset("assets/icons/search.png", width: 20, height: 20, color: AppTheme.lightGreyColor,),
-                    // prefixIcon: SvgPicture.asset("assets/icons/search.svg", color: AppTheme.lightGreyColor, width: 18,height: 18,),
                     hintText: 'ابحث هنا...', fillColor: Colors.transparent,
                     filled: true,
                   ),

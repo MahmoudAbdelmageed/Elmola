@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 import 'dart:isolate';
-import 'dart:math';
 import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
@@ -15,21 +14,21 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path_provider_android/path_provider_android.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:provider/provider.dart';
+
 import '../../models/books_model.dart';
 import '../../pdf_view_screen.dart';
-import '../../vars.dart';
+import '../../provider/provider.dart';
 
-class BookDetailsScreen extends StatefulWidget {
-  final BooksModel booksObject;
-  BookDetailsScreen({required this.booksObject});
+class ApiBookDetailsScreen extends StatefulWidget {
+   String id;
+  ApiBookDetailsScreen({required this.id});
 
   @override
-  State<BookDetailsScreen> createState() => _BookDetailsScreenState();
+  State<ApiBookDetailsScreen> createState() => _ApiBookDetailsScreenState();
 }
 
-class _BookDetailsScreenState extends State<BookDetailsScreen> {
+class _ApiBookDetailsScreenState extends State<ApiBookDetailsScreen> {
   ReceivePort _port = ReceivePort();
   late bool _permissionReady;
   String? _localPath;
@@ -40,31 +39,17 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
   String? taskId;
   bool dialoShow=false;
 
-
-  final List<String> ids = [
-    'P0uaLRO6V1U',
-    'v69praWH6cs',
-    'pWKQId6Z85U',
-    'y5lapak5eOk',
-    'QS-CVp0JNJU',
-    'MEWTDDik9vU',
-    'GcGPzT5THKY',
-  ];
-  final _random = new Random();
-  late YoutubePlayerController _controller;
   @override
   void initState() {
     super.initState();
     _bindBackgroundIsolate();
     FlutterDownloader.registerCallback(downloadCallback);
     _permissionReady = false;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<ApiProvider>(context, listen: false)
+          .getBookDetailsData(context,widget.id);
+    });
 
-   _controller  = YoutubePlayerController(
-      initialVideoId: ids[_random.nextInt(ids.length)],
-      flags: YoutubePlayerFlags(
-        autoPlay: true,
-      ),
-    );
 
   }
 
@@ -83,11 +68,11 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
         taskId = id;
         progress = progresss;
         progress==100? {
-        downloading = false,
-        progress = 0,
+          downloading = false,
+          progress = 0,
           dialoShow==true? null: showDialogFunc()
-      }
-        : print("jhdjhdfjhjdfhjdfhjdfhjfhjfghjfhjfg");
+        }
+            : print("jhdjhdfjhjdfhjdfhjdfhjfhjfghjfhjfg");
 
       });
     });
@@ -100,7 +85,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
     });
 
 
-   await Fluttertoast.showToast(
+    await Fluttertoast.showToast(
         msg: "تم تحميل الملف بنجاح",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
@@ -165,13 +150,12 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
   static void downloadCallback(
       String id, DownloadTaskStatus status, int progress) {
     final SendPort send =
-        IsolateNameServer.lookupPortByName('downloader_send_port')!;
+    IsolateNameServer.lookupPortByName('downloader_send_port')!;
     send.send([id, status, progress]);
   }
 
 //preper function
   Future<Null> _prepare() async {
-
     _permissionReady = await _checkPermission();
     if (_permissionReady) {
       await _prepareSaveDir();
@@ -180,11 +164,10 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
 
 // get permision
   Future<bool> _checkPermission() async {
-
     if (Platform.isIOS) return true;
     if (Theme.of(context).platform == TargetPlatform.android) {
       final status = await Permission.storage.status;
-      if (false) {
+      if (status != PermissionStatus.granted) {
         final result = await Permission.storage.request();
         if (result == PermissionStatus.granted) {
           return true;
@@ -224,7 +207,6 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
           (await getApplicationDocumentsDirectory()).absolute.path;
     }
     return externalStorageDirPath;
-
   }
 
   @override
@@ -235,9 +217,11 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ApiProvider>(context);
+
     return SafeArea(
       child: Scaffold(
-        body: Stack(
+        body:provider.bookDetailsLoading?SizedBox():Stack(
           children: [
             ListView(
               children: [
@@ -248,17 +232,8 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                         aspectRatio: 0.7,
                         child: Stack(
                           children: [
-                            test?YoutubePlayer(
-                          controller: _controller,
-                          showVideoProgressIndicator: true,
-                          progressIndicatorColor:Colors.amber,
-
-                          onReady: () {
-                      //  _controller.addListener(listener);
-                        },
-                        ):
-                      CachedNetworkImage(
-                              imageUrl: widget.booksObject.imagePath!,
+                            CachedNetworkImage(
+                              imageUrl: provider.bookDetailsObject.data.image,
                               fit: BoxFit.fill,
                               width: double.infinity,
                               height: double.infinity,
@@ -277,7 +252,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                             )
                           ],
                         )),
-                 test? SizedBox() :Positioned(
+                    Positioned(
                         left: 24.0,
                         bottom: -16.0,
                         child: Row(
@@ -288,8 +263,8 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                                 NavigationClass.navigate(
                                     context,
                                     PDFScreen(
-                                      path: widget.booksObject.pdfPath,
-                                      bookName:widget.booksObject.name,
+                                      path:provider.bookDetailsObject.data.book,
+                                      bookName:provider.bookDetailsObject.data.name,
                                     ));
                                 //    print("$pdfPath${booksObject.pdfPath}");
                               },
@@ -318,12 +293,15 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                                   dialoShow=false;
                                 });
                                 await FlutterDownloader.enqueue(
-                                  url: widget.booksObject.pdfPath!,
+                                  url: provider.bookDetailsObject.data.book,
                                   savedDir: _localPath!,
                                   showNotification: true,
                                   openFileFromNotification: true,
                                   saveInPublicStorage: true,
                                 ).then((v) {
+
+
+
                                 });
                               },
                               child: Container(
@@ -348,13 +326,13 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AppText(
-                        widget.booksObject.name!,
+                        provider.bookDetailsObject.data.name,
                         color: Colors.black,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                       AppText(
-                        widget.booksObject.writerName!,
+                        provider.bookDetailsObject.data.author,
                         color: AppTheme.greyTxtColor,
                         fontSize: 16,
                       ),
@@ -369,15 +347,22 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                             width: 4,
                           ),
                           AppText(
-                            widget.booksObject.category!,
+                            provider.bookDetailsObject.data.categoryName,
                             color: Color(0xffdc9e4c),
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
+
                         ],
                       ),
                       const SizedBox(height: 6.0),
-
+                      AppText(
+                        provider.bookDetailsObject.data.description,
+                        color: Color(0xffdc9e4c),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        maxLines: 6,
+                      ),
                     ],
                   ),
                 ),
@@ -386,106 +371,106 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
             downloading == false
                 ? SizedBox()
                 : Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Opacity(
-                        opacity: .5,
-                        child: Container(
-                          width: double.infinity,
-                          color: Colors.grey.withOpacity(.4),
-                          height: MediaQuery.of(context).size.height * .755,
-                        ),
-                      ),
-                      Container(
-                        width: double.infinity,
-                        color: Colors.white,
-                        height: MediaQuery.of(context).size.height * .2,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 16, vertical: 8),
-                                child: AppText(
-                                  "تحميل الكتاب",
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16),
-                                    child: Container(
-                                      width: 40,
-                                      height: 40,
-                                      padding: const EdgeInsets.all(6.0),
-                                      decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: AppTheme.brownColor,
-                                      ),
-                                      alignment: Alignment.center,
-                                      child:  Image.asset("assets/images/file.png",width:
-                                      16),
-                                    ),
-                                  ),
-                                  Expanded(
-                                      child: Container(
-                                    margin: EdgeInsets.symmetric(vertical: 20),
-                                    width: 300,
-                                    height: 16,
-                                    child: ClipRRect(
-                                      borderRadius:
-                                          BorderRadius.all(Radius.circular(10)),
-                                      child: LinearProgressIndicator(
-                                        value: progress / 100,
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                                AppTheme.yellowColor),
-                                        backgroundColor: Colors.grey,
-                                      ),
-                                    ),
-                                  )),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 8, vertical: 8),
-                                    child: AppText(
-                                      "${progress} %",
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      color: AppTheme.greyRegularColor,
-                                    ),
-                                  ),
-                                  InkWell(
-                                      onTap: () async {
-                                        await FlutterDownloader.cancel(
-                                                taskId: taskId!)
-                                            .then((value) {
-                                          Timer(Duration(seconds: 1), () {
-                                            setState(() {
-                                              downloading = false;
-                                              progress = 0;
-                                            });
-                                          });
-                                        });
-                                      },
-                                      child: Padding(
-                                        padding: EdgeInsets.all(8),
-                                        child: Image.asset("assets/images/cancel.png",width: 22,),
-                                      ))
-                                ],
-                              ),
-                            ],
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Opacity(
+                  opacity: .5,
+                  child: Container(
+                    width: double.infinity,
+                    color: Colors.grey.withOpacity(.4),
+                    height: MediaQuery.of(context).size.height * .755,
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  color: Colors.white,
+                  height: MediaQuery.of(context).size.height * .2,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
+                          child: AppText(
+                            "تحميل الكتاب",
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                    ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16),
+                              child: Container(
+                                width: 40,
+                                height: 40,
+                                padding: const EdgeInsets.all(6.0),
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppTheme.brownColor,
+                                ),
+                                alignment: Alignment.center,
+                                child:  Image.asset("assets/images/file.png",width:
+                                16),
+                              ),
+                            ),
+                            Expanded(
+                                child: Container(
+                                  margin: EdgeInsets.symmetric(vertical: 20),
+                                  width: 300,
+                                  height: 16,
+                                  child: ClipRRect(
+                                    borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                    child: LinearProgressIndicator(
+                                      value: progress / 100,
+                                      valueColor:
+                                      AlwaysStoppedAnimation<Color>(
+                                          AppTheme.yellowColor),
+                                      backgroundColor: Colors.grey,
+                                    ),
+                                  ),
+                                )),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 8),
+                              child: AppText(
+                                "${progress} %",
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: AppTheme.greyRegularColor,
+                              ),
+                            ),
+                            InkWell(
+                                onTap: () async {
+                                  await FlutterDownloader.cancel(
+                                      taskId: taskId!)
+                                      .then((value) {
+                                    Timer(Duration(seconds: 1), () {
+                                      setState(() {
+                                        downloading = false;
+                                        progress = 0;
+                                      });
+                                    });
+                                  });
+                                },
+                                child: Padding(
+                                  padding: EdgeInsets.all(8),
+                                  child: Image.asset("assets/images/cancel.png",width: 22,),
+                                ))
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

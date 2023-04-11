@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../helper/cache_helper.dart';
 import '../../helper/paths.dart';
+
 import '../home/home_screen.dart';
 import '../onBoarding/onBoarding_screen.dart';
 
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // LocalStorage.isLoggedIn
       //     ? Get.to(() => const HomeScreen(), binding: GetBinding())
       //     : Get.to(() => const LoginScreen());
-      Get.off(() => onBoardingSeen? HomeScreen():const OnBoardingScreen());
+      Get.off(() =>onBoardingSeen?HomeScreen():const OnBoardingScreen());
     });
   }
 

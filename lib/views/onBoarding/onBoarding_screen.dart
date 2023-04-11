@@ -59,7 +59,7 @@ class OnBoardingScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const AppText(
-                  "يوضع عنوان الميزة هنا",
+                  "مكتبة الشيخ أبو بكر الملا",
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -68,7 +68,7 @@ class OnBoardingScreen extends StatelessWidget {
                   height: 12.0,
                 ),
                 const AppText(
-                  """توضع هنا تفاصيل الميزة والذي عادة ما يتكون من عدة أسطر كهذا المثال.""",
+                  """تطبيق مهتم بالكتب الشرعية لأسرة الشيخ أبو بكر الملا.""",
                   maxLines: 2,
                   fontSize: 17,
                   color: Colors.white,

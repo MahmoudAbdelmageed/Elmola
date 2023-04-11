@@ -157,7 +157,7 @@ List<BooksModel> bookList = [
   BooksModel(
       name: "دفع الاسى في اذكار الصباح والمسا",
       pdfPath:
-      "https://mulla.hwzn.sa/pdf/%d8%af%d9%81%d8%b9%20%d8%a7%d9%84%d8%a7%d9%94%d8%b3%d9%89%20%d9%81%d9%8a%20%d8%a7%d9%94%d8%b0%d9%83%d8%a7%d8%b1%20%d8%a7%d9%84%d8%b5%d8%a8%d8%a7%d8%ad%20%d9%88%d8%a7%d9%84%d9%85%d8%b3%d8%a7.pdf",
+      "https://mulla.hwzn.sa/pdf/%D8%AF%D9%81%D8%B9%20%D8%A7%D9%84%D8%A7%D9%94%D8%B3%D9%89%20%D9%81%D9%8A%20%D8%A3%D8%B0%D9%83%D8%A7%D8%B1%20%D8%A7%D9%84%D8%B5%D8%A8%D8%A7%D8%AD%20%D9%88%D8%A7%D9%84%D9%85%D8%B3%D8%A7.pdf",
       imagePath:
       "https://mulla.hwzn.sa/image/%d8%af%d9%81%d8%b9%20%d8%a7%d9%84%d8%a7%d9%94%d8%b3%d9%89%20%d9%81%d9%8a%20%d8%a7%d9%94%d8%b0%d9%83%d8%a7%d8%b1%20%d8%a7%d9%84%d8%b5%d8%a8%d8%a7%d8%ad%20%d9%88%d8%a7%d9%84%d9%85%d8%b3%d8%a7.jpg",
       writerName: "الإمام برهان الدين إبراهيم بن حسن الملا",
@@ -167,7 +167,7 @@ List<BooksModel> bookList = [
   BooksModel(
       name: "دفع الأسى في أذكار الصباح والمسا",
       pdfPath:
-      "https://mulla.hwzn.sa/pdf/%d8%af%d9%81%d8%b9%20%d8%a7%d9%84%d8%a7%d8%b3%d9%89%20%d9%81%d9%8a%20%d8%a7%d8%b0%d9%83%d8%a7%d8%b1%20%d8%a7%d9%84%d8%b5%d8%a8%d8%a7%d8%ad%20%d9%88%d8%a7%d9%84%d9%85%d8%b3%d8%a7.pdf",
+      "https://mulla.hwzn.sa/pdf/%d8%af%d9%81%d8%b9%20%d8%a7%d9%84%d8%a7%d9%94%d8%b3%d9%89%20%d9%81%d9%8a%20%d8%a7%d9%94%d8%b0%d9%83%d8%a7%d8%b1%20%d8%a7%d9%84%d8%b5%d8%a8%d8%a7%d8%ad%20%d9%88%d8%a7%d9%84%d9%85%d8%b3%d8%a7.pdf",
       imagePath:
       "https://mulla.hwzn.sa/image/%d8%af%d9%81%d8%b9%20%d8%a7%d9%84%d8%a7%d8%b3%d9%89%20%d9%81%d9%8a%20%d8%a7%d8%b0%d9%83%d8%a7%d8%b1%20%d8%a7%d9%84%d8%b5%d8%a8%d8%a7%d8%ad%20%d9%88%d8%a7%d9%84%d9%85%d8%b3%d8%a7.jpg",
       writerName: "الشيخ إبراهيم بن حسن الملا",
@@ -264,7 +264,7 @@ List<BooksModel> bookList = [
       mostViewed: false),
   BooksModel(
       name: "صفة صلاة النبي صلى الله عليه وسلم",
-      pdfPath: "https://mulla.hwzn.sa/image/%d8%b4%d8%b1%d8%ad%20%d9%86%d8%b5%d9%8a%d8%ad%d8%a9%20%d8%a7%d9%84%d8%aa%d8%a7%d8%ac%20%d8%a7%d8%a8%d9%86%20%d8%b2%d9%83%d8%b1%d9%8a%d8%a7.jpg",
+      pdfPath: "https://mulla.hwzn.sa/pdf/%D8%B5%D9%81%D8%A9%20%D8%B5%D9%84%D8%A7%D8%A9%20%D8%A7%D9%84%D9%86%D8%A8%D9%8A%20%D8%B5%D9%84%D9%89%20%D8%A7%D9%84%D9%84%D9%87%20%D8%B9%D9%84%D9%8A%D9%87%20%D9%88%D8%B3%D9%84%D9%85.pdf",
       imagePath: "https://mulla.hwzn.sa/image/%d8%b5%d9%81%d8%a9%20%d8%b5%d9%84%d8%a7%d8%a9%20%d8%a7%d9%84%d9%86%d8%a8%d9%8a%20%d8%b5%d9%84%d9%89%20%d8%a7%d9%84%d9%84%d9%87%20%d8%b9%d9%84%d9%8a%d9%87%20%d9%88%d8%b3%d9%84%d9%85.jpg",
       writerName: "رائد عبد الله الملا",
       category: category[0],
@@ -377,7 +377,7 @@ List<BooksModel> bookList = [
   BooksModel(
       name: "هداية الناسك الى معرفة آداب المناسك",
       pdfPath:
-      "https://mulla.hwzn.sa/pdf/%d9%87%d8%af%d8%a7%d9%8a%d8%a9%20%d8%a7%d9%84%d9%86%d8%a7%d8%b3%d9%83%20%d8%a7%d9%84%d9%89%20%d9%85%d8%b9%d8%b1%d9%81%d8%a9%20%d8%a7%d9%93%d8%af%d8%a7%d8%a8%20%d8%a7%d9%84%d9%85%d9%86%d8%a7%d8%b3%d9%83.pdf",
+      "https://mulla.hwzn.sa/pdf/%d9%87%d8%af%d8%a7%d9%8a%d8%a9%20F%d8%a7%d9%84%d9%86%d8%a7%d8%b3%d9%83%20%d8%a7%d9%84%d9%89%20%d9%85%d8%b9%d8%b1%d9%81%d8%a9%20%d8%a7%d9%93%d8%af%d8%a7%d8%a8%20%d8%a7%d9%84%d9%85%d9%86%d8%a7%d8%b3%d9%83.pdf",
       imagePath:
       "https://mulla.hwzn.sa/image/%d9%87%d8%af%d8%a7%d9%8a%d8%a9%20%d8%a7%d9%84%d9%86%d8%a7%d8%b3%d9%83%20%d8%a7%d9%84%d9%89%20%d9%85%d8%b9%d8%b1%d9%81%d8%a9%20%d8%a7%d9%93%d8%af%d8%a7%d8%a8%20%d8%a7%d9%84%d9%85%d9%86%d8%a7%d8%b3%d9%83.jpg",
       writerName: "شيخ الإسلام الشيخ إبراهيم بن حسن الملا الحنفي الأحسائي الشهير بمفتي الشرق ت ١٠٤٨ هـ",
