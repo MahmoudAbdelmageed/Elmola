@@ -41,17 +41,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
   bool dialoShow=false;
 
 
-  final List<String> ids = [
-    'P0uaLRO6V1U',
-    'v69praWH6cs',
-    'pWKQId6Z85U',
-    'y5lapak5eOk',
-    'QS-CVp0JNJU',
-    'MEWTDDik9vU',
-    'GcGPzT5THKY',
-  ];
-  final _random = new Random();
-  late YoutubePlayerController _controller;
+
   @override
   void initState() {
     super.initState();
@@ -59,12 +49,6 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
     FlutterDownloader.registerCallback(downloadCallback);
     _permissionReady = false;
 
-   _controller  = YoutubePlayerController(
-      initialVideoId: ids[_random.nextInt(ids.length)],
-      flags: YoutubePlayerFlags(
-        autoPlay: true,
-      ),
-    );
 
   }
 
@@ -248,15 +232,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                         aspectRatio: 0.7,
                         child: Stack(
                           children: [
-                            test?YoutubePlayer(
-                          controller: _controller,
-                          showVideoProgressIndicator: true,
-                          progressIndicatorColor:Colors.amber,
 
-                          onReady: () {
-                      //  _controller.addListener(listener);
-                        },
-                        ):
                       CachedNetworkImage(
                               imageUrl: widget.booksObject.imagePath!,
                               fit: BoxFit.fill,
@@ -277,7 +253,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                             )
                           ],
                         )),
-                 test? SizedBox() :Positioned(
+                 Positioned(
                         left: 24.0,
                         bottom: -16.0,
                         child: Row(
