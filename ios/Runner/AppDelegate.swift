@@ -1,6 +1,8 @@
 import UIKit
 import Flutter
 import flutter_downloader
+import Firebase
+
 
 
 @UIApplicationMain
@@ -9,7 +11,11 @@ import flutter_downloader
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-    GeneratedPluginRegistrant.register(with: self)
+   FirebaseApp.configure()
+     GeneratedPluginRegistrant.register(with: self)
+     if #available(iOS 10.0, *) {
+           UNUserNotificationCenter.current().delegate = self as? UNUserNotificationCenterDelegate
+         }
     FlutterDownloaderPlugin.setPluginRegistrantCallback(registerPlugins)
 
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)

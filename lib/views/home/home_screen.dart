@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:el_mola/helper/appTheme.dart';
 import 'package:el_mola/hotlines/utilites/consts.dart';
 import 'package:el_mola/views/home/componenets/latest_versions.dart';
@@ -8,6 +10,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../vars.dart';
 import '../video_Screen.dart';
@@ -20,13 +23,38 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var scaffold = GlobalKey<ScaffoldState>();
+ late var scaffold;
 
-  List screens=[VideoScreen(),BookWidgets()];
+
+late  List screens;
 
   int index=0;
 
   @override
+  void initState() {
+    scaffold = GlobalKey<ScaffoldState>();
+    screens=[VideoScreen(),BookWidgets(scaffold)];
+    super.initState();
+  }
+
+
+ File? myFile;
+
+ Future openGallery(BuildContext context) async {
+   try{
+     XFile? xfile = await ImagePicker().pickImage(source: ImageSource.gallery,imageQuality: 50,maxWidth: 640,maxHeight: 480);
+     myFile = File(xfile!.path);
+
+   }catch(e){
+     print(e.toString());
+
+  //   showSnackBarHelper(context, e.toString());
+   }
+  setState((){});
+ }
+
+
+ @override
   Widget build(BuildContext context) {
 
     return Scaffold(
@@ -70,6 +98,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
+      ):SizedBox(),
+      floatingActionButton: test? FloatingActionButton(onPressed: () {
+        openGallery(context);
+      },
+        child: myFile==null?Icon(Icons.person): Image.file(myFile!),
+
       ):SizedBox(),
       body: test?screens[index]: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -194,8 +228,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
 
 class BookWidgets extends StatelessWidget {
-
-
+  late var  scaffold;
+  BookWidgets(this.scaffold);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -219,7 +253,7 @@ class BookWidgets extends StatelessWidget {
                       children: [
                         InkWell(
                           onTap: () {
-                        //    scaffold.currentState!.openDrawer();
+                          scaffold.currentState!.openDrawer();
                           },
                           child: SvgPicture.asset(
                             "assets/icons/menu.svg",

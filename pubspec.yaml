@@ -65,6 +65,11 @@ dependencies:
   sqflite:
   path:
   youtube_player_flutter:
+  image_picker: ^0.8.5+3
+  firebase_core:
+  firebase_messaging:
+  flutter_local_notifications: ^9.6.0
+
 
 dev_dependencies:
   flutter_test:

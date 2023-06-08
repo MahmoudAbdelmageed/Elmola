@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../helper/cache_helper.dart';
+import '../../helper/notification_helper.dart';
 import '../../helper/paths.dart';
 
 import '../home/home_screen.dart';
@@ -15,10 +16,14 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late final NotificationsAPI service;
 
   @override
   void initState() {
     onBoardingSeen = CacheHelper.getData(key: "onBoardingSeen")??false;
+    service = NotificationsAPI();
+
+    service.intialize();
     // TODO: implement initState
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
