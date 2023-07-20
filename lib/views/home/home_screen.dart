@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:el_mola/helper/appTheme.dart';
-import 'package:el_mola/hotlines/utilites/consts.dart';
 import 'package:el_mola/views/home/componenets/latest_versions.dart';
 import 'package:el_mola/views/home/componenets/most_read.dart';
 import 'package:el_mola/views/search/search_screen.dart';
@@ -58,8 +57,10 @@ late  List screens;
   Widget build(BuildContext context) {
 
     return Scaffold(
+
       key: scaffold,
       drawer: MainDrawer(),
+
       bottomNavigationBar: test? Container(
         padding: EdgeInsets.all(0.0),
         color: Colors.orange,
@@ -142,6 +143,16 @@ late  List screens;
                             color: Colors.white,
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              scaffold.currentState!.openDrawer();
+                            },
+                            child: SvgPicture.asset(
+                              "assets/icons/menu.svg",
+                              color: Colors.white,
+                              width: 22,
+                            ),
                           ),
                         ],
                       ),
@@ -270,6 +281,7 @@ class BookWidgets extends StatelessWidget {
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
+
                       ],
                     ),
                   )),

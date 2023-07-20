@@ -1,9 +1,12 @@
 import 'package:el_mola/helper/appTheme.dart';
 import 'package:el_mola/helper/cache_helper.dart';
 import 'package:el_mola/helper/navigation_helper.dart';
+import 'package:el_mola/vars.dart';
 import 'package:el_mola/views/home/home_screen.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/material.dart';
+
+import '../login/login_screen.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({Key? key}) : super(key: key);
@@ -118,7 +121,7 @@ class OnBoardingScreen extends StatelessWidget {
         InkWell(
             onTap: () {
               CacheHelper.saveData(key: "onBoardingSeen", value: true);
-              NavigationClass.finalNavigate(context, HomeScreen());
+            test?  NavigationClass.finalNavigate(context, LoginPage()) : NavigationClass.finalNavigate(context, HomeScreen());
             },
             child: const Icon(Icons.arrow_forward, color: Colors.white)),
       ],

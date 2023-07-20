@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>320547099647-pb08vpq96498icf7kt5tgouo29oefqru.apps.googleusercontent.com</string>
+	<string>580057501791-r0bl21br95n4lj4pu6p3e8h0r59la14e.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.320547099647-pb08vpq96498icf7kt5tgouo29oefqru</string>
+	<string>com.googleusercontent.apps.580057501791-r0bl21br95n4lj4pu6p3e8h0r59la14e</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCq7qJr206mCWgSYf733l0XWkIPQonsU3E</string>
+	<string>AIzaSyCuq8QUey4jcmG0ZdzKZcR7F815QdDi2jI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>320547099647</string>
+	<string>580057501791</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.hwzn.elMola</string>
+	<string>com.hwzn.elMolan</string>
 	<key>PROJECT_ID</key>
-	<string>elmolla-69cb2</string>
+	<string>elmolla-98aa0</string>
 	<key>STORAGE_BUCKET</key>
-	<string>elmolla-69cb2.appspot.com</string>
+	<string>elmolla-98aa0.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:320547099647:ios:a541d4dbbb2e56df6a4dca</string>
+	<string>1:580057501791:ios:7dc92c2d961cab14bc0bea</string>
 </dict>
 </plist>
