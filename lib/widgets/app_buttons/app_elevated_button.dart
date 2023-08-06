@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class AppElevatedButton extends StatelessWidget {
+  final String text;
+  final Color? textColor;
+  final Color? backgroundColor;
+  final bool? centerText;
+  final double? fontSize;
+  final String? fontFamily;
+  final FontWeight? fontWeight;
+  final VoidCallback? onPressed;
+
+  const AppElevatedButton({
+    Key? key,
+    required this.text,
+    this.onPressed,
+    this.backgroundColor,
+    this.textColor,
+    this.centerText,
+    this.fontSize,
+    this.fontFamily = "Cairo",
+    this.fontWeight,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        textStyle: GoogleFonts.tajawal(fontSize: fontSize, fontWeight: fontWeight,),
+        primary: backgroundColor ?? Theme.of(context).primaryColor, //background color
+        onPrimary: textColor ?? Colors.white,
+        elevation: 2.0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      ),
+      // text color
+      onPressed: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16.0),
+        child: Text(text),
+      ),
+    );
+  }
+}
