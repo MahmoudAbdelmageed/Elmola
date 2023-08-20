@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../vars.dart';
-import '../video_Screen.dart';
+import '../chat/chat_screen.dart';
 import 'componenets/drawer.dart';
 import 'componenets/header_categories.dart';
 
@@ -32,7 +32,7 @@ late  List screens;
   @override
   void initState() {
     scaffold = GlobalKey<ScaffoldState>();
-    screens=[VideoScreen(),BookWidgets(scaffold)];
+    screens=[ChatScreen(),BookWidgets(scaffold)];
     super.initState();
   }
 
@@ -90,8 +90,8 @@ late  List screens;
                     index=0;
                   });
                 },
-                icon: Icon(Icons.video_call),
-                label: Text("Video",style: TextStyle(
+                icon: Icon(Icons.message),
+                label: Text("Chat",style: TextStyle(
                     fontSize: 20
                 )),
               ),
@@ -99,12 +99,7 @@ late  List screens;
           ],
         ),
       ):SizedBox(),
-      floatingActionButton: test? FloatingActionButton(onPressed: () {
-        openGallery(context);
-      },
-        child: myFile==null?Icon(Icons.person): Image.file(myFile!),
 
-      ):SizedBox(),
       body: test?screens[index]: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

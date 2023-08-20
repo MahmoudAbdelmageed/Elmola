@@ -40,6 +40,9 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
   int progress = 0;
   String? taskId;
   bool dialoShow=false;
+  TextEditingController messgae=TextEditingController();
+
+  List<String> commitList=["كتاب ممتاز"];
 
 
 
@@ -320,10 +323,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                             ),
                           test?  InkWell(
                               onTap: () async {
-                                print(widget.booksObject.pdfPath!);
                                 Share.share(widget.booksObject.pdfPath!);
-
-
                               },
                               child: Container(
                                 width: 40,
@@ -376,6 +376,82 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                         ],
                       ),
                       const SizedBox(height: 6.0),
+                      test?
+                      Column(
+                        children: [
+
+                          ListView.builder(
+
+                              itemCount: commitList.length,
+                              shrinkWrap: true,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemBuilder: (context,i){return Container(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Colors.black12,
+                                    borderRadius: BorderRadius.circular(12)
+                                        
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            ClipRRect(
+                                                child: Image.network("https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk",width: 60,height: 60,),borderRadius: BorderRadius.circular(80)),
+                                            SizedBox(width: 20,),
+                                            AppText("mahmoud ali",fontSize: 18),
+                                          ],
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(horizontal: 80),
+                                          child: AppText(commitList[i],fontSize: 24),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              );}),
+
+                          SizedBox(height: 24,),
+                          Container(
+                            height: 60,
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
+                            decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: Color(0x33000000),
+                                      offset: Offset(0, -15),
+                                      blurRadius: 163,
+                                      spreadRadius: 0)
+                                ],
+                                color: Color(0xffffffff)),
+                            child: TextField(
+                              controller: messgae,
+                              decoration: InputDecoration(
+                                  border: InputBorder.none,
+                                  hintText: 'writeHere',
+                                  prefixIcon: RotatedBox(
+                                    quarterTurns: 90,
+                                    child: InkWell(
+                                        onTap: ()  {
+
+                                          setState((){
+                                            commitList.add(messgae.text);
+                                          });
+
+
+                                        },
+                                        child: Icon(Icons.send)
+                                    ),
+                                  )),
+                            ),
+                          ),
+                        ],
+                      ):SizedBox()
 
                     ],
                   ),
