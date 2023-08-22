@@ -32,7 +32,7 @@ late  List screens;
   @override
   void initState() {
     scaffold = GlobalKey<ScaffoldState>();
-    screens=[ChatScreen(),BookWidgets(scaffold)];
+    screens=[ChatScreen(scaffold),BookWidgets(scaffold)];
     super.initState();
   }
 

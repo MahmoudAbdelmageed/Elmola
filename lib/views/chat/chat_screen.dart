@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../helper/appTheme.dart';
 import '../../widgets/app_text.dart';
+import '../setting/setting.dart';
 import 'chat_details_screen.dart';
 
 
 class ChatScreen extends StatefulWidget {
-  const ChatScreen({Key? key}) : super(key: key);
+  late var  scaffold;
+  ChatScreen(this.scaffold);
 
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -19,13 +21,8 @@ class _ChatScreenState extends State<ChatScreen> {
     ChatUsers(name: "Mohamed ali", messageText: "Hi", imageURL: "https://i.pravatar.cc/250?u=mail@ashallendesign.co.uk", time: "yesterday"),
   ];
 
-  var scaffold = GlobalKey<ScaffoldState>();
 
-  @override
-  void initState() {
 
-    super.initState();
-  }
 
 
   @override
@@ -33,7 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
     return Column(
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * .15,
+          height: MediaQuery.of(context).size.height * .18,
           child: Container(
               height: double.infinity,
               margin: const EdgeInsets.only(bottom: 20),
@@ -48,7 +45,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   children: [
                     InkWell(
                       onTap: () {
-                        scaffold.currentState!.openDrawer();
+                      widget.scaffold.currentState!.openDrawer();
                       },
                       child: SvgPicture.asset(
                         "assets/icons/menu.svg",
@@ -64,8 +61,23 @@ class _ChatScreenState extends State<ChatScreen> {
                       color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-
                     ),
+
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .25,
+                    ),
+
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context){
+                          return SettingScreen();
+                        }));
+
+                      },
+                      child: Icon(Icons.settings,   color: Colors.white,
+                      size: 28,)
+                    ),
+
 
                   ],
                 ),
