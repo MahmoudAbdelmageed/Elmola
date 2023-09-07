@@ -79,12 +79,7 @@ class LoginPage extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        if (usernameController.text == "mahmoud" &&
-                            passwordController.text == "123456789") {
                           NavigationClass.navigate(context, HomeScreen());
-                        }else{
-                          showSnackBarHelper(context,"اسم المستخدم او الباسورد خطأ");
-                        }
                       }
                     },
                     style: ButtonStyle(
