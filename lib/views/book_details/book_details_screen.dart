@@ -321,9 +321,13 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                             SizedBox(
                               width: 16,
                             ),
-                          test?  InkWell(
+                          if(test)  InkWell(
                               onTap: () async {
-                                Share.share(widget.booksObject.pdfPath!);
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text("تم بنجاح"),
+                                  duration: Duration(milliseconds: 300),
+                                  backgroundColor: AppTheme.primaryColor,
+                                ));
                               },
                               child: Container(
                                 width: 40,
@@ -334,9 +338,32 @@ class _BookDetailsScreenState extends State<BookDetailsScreen> {
                                   color: AppTheme.brownColor,
                                 ),
                                 alignment: Alignment.center,
-                                child: Icon(Icons.share,color: AppTheme.whiteColor),
+                                child: Icon(Icons.flag,color: AppTheme.whiteColor),
                               ),
-                            ):SizedBox(),
+                            ),
+                            SizedBox(
+                              width: 16,
+                            ),
+                            if(test)  InkWell(
+                              onTap: () async {
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text( " تم الإبلاغ عن الكتاب سوف يتم مراجعه طلبك"),
+                                  duration: Duration(milliseconds: 900),
+                                  backgroundColor: AppTheme.primaryColor,
+                                ));
+                              },
+                              child: Container(
+                                width: 40,
+                                height: 40,
+                                padding: const EdgeInsets.all(6.0),
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppTheme.brownColor,
+                                ),
+                                alignment: Alignment.center,
+                                child: Icon(Icons.report,color: AppTheme.whiteColor),
+                              ),
+                            ),
                           ],
                         )),
                   ],

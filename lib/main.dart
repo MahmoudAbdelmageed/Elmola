@@ -2,6 +2,7 @@ import 'package:el_mola/helper/appTheme.dart';
 import 'package:el_mola/helper/get_binding.dart';
 import 'package:el_mola/provider/provider.dart';
 import 'package:el_mola/vars.dart';
+import 'package:el_mola/views/login/login_screen.dart';
 import 'package:el_mola/views/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -48,7 +49,7 @@ class MyApp extends StatelessWidget {
         initialBinding: GetBinding(),
         locale: const Locale("ar", "SA"),
         theme: AppTheme.themeData,
-        home: const SplashScreen(),
+        home:  LoginPage(),
       ),
     );
   }
