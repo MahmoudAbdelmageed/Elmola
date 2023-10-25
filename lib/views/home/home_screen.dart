@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:el_mola/helper/appTheme.dart';
+import 'package:el_mola/hotlines/homePage.dart';
 import 'package:el_mola/views/home/componenets/latest_versions.dart';
 import 'package:el_mola/views/home/componenets/most_read.dart';
 import 'package:el_mola/views/search/search_screen.dart';
+import 'package:el_mola/views/video_Screen.dart';
 import 'package:el_mola/widgets/app_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -28,11 +30,12 @@ class _HomeScreenState extends State<HomeScreen> {
 late  List screens;
 
   int index=0;
-
+//ChatScreen(scaffold)
+  //MyHomePageh
   @override
   void initState() {
     scaffold = GlobalKey<ScaffoldState>();
-    screens=[ChatScreen(scaffold),BookWidgets(scaffold)];
+    screens=[MyHomePageh(),ChatScreen(scaffold),BookWidgets(scaffold),VideoScreen()];
     super.initState();
   }
 
@@ -71,12 +74,12 @@ late  List screens;
               child: FlatButton.icon(
                 onPressed: () {
                   setState((){
-                    index=1;
+                    index=3;
                   });
                 },
-                icon: Icon(Icons.book),
-                label: Text("Book",style: TextStyle(
-                    fontSize: 20
+                icon: Icon(Icons.video_collection,size: 14),
+                label: Text("Video",style: TextStyle(
+                    fontSize: 18
                 )),
               ),
             ),
@@ -86,12 +89,41 @@ late  List screens;
               child: FlatButton.icon(
                 onPressed: () {
                   setState((){
+                    index=2;
+                  });
+                },
+                icon: Icon(Icons.book,size: 14),
+                label: Text("Book",style: TextStyle(
+                    fontSize: 18
+                )),
+              ),
+            ),
+
+            Expanded(
+              flex: 1,
+              child: FlatButton.icon(
+                onPressed: () {
+                  setState((){
+                    index=1;
+                  });
+                },
+                icon: Icon(Icons.message,size: 14),
+                label: Text("Chat",style: TextStyle(
+                    fontSize: 18
+                )),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: FlatButton.icon(
+                onPressed: () {
+                  setState((){
                     index=0;
                   });
                 },
-                icon: Icon(Icons.message),
-                label: Text("Chat",style: TextStyle(
-                    fontSize: 20
+                icon: Icon(Icons.book,size: 14),
+                label: Text("Lines",style: TextStyle(
+                    fontSize: 18
                 )),
               ),
             ),

@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
         initialBinding: GetBinding(),
         locale: const Locale("ar", "SA"),
         theme: AppTheme.themeData,
-        home:  LoginPage(),
+        home:  SplashScreen(),
       ),
     );
   }

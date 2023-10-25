@@ -2,7 +2,9 @@
     package="com.hwzn.elMola">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-   <application
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
         android:label="مكتبة الشيخ ابوبكر الملا"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
