@@ -35,7 +35,7 @@ late  List screens;
   @override
   void initState() {
     scaffold = GlobalKey<ScaffoldState>();
-    screens=[MyHomePageh(),ChatScreen(scaffold),BookWidgets(scaffold),VideoScreen()];
+    screens=[MyHomePageh(),ChatScreen(scaffold),BookWidgets(scaffold)];
     super.initState();
   }
 
@@ -69,20 +69,6 @@ late  List screens;
         child: Row(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: FlatButton.icon(
-                onPressed: () {
-                  setState((){
-                    index=3;
-                  });
-                },
-                icon: Icon(Icons.video_collection,size: 14),
-                label: Text("Video",style: TextStyle(
-                    fontSize: 18
-                )),
-              ),
-            ),
 
             Expanded(
               flex: 1,
