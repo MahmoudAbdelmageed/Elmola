@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:el_mola/controllers/data_lists.dart';
 import 'package:el_mola/hotlines/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -262,6 +263,28 @@ class _AllKindState extends State<AllKind> {
                                         setState(() {
                                           ids.add(index);
                                         });
+                                        hotLinesfave.add(FavItem({
+                                          'itemid': 2,
+                                          'name':
+                                          kind_object[index].title!.rendered!,
+                                          'content': kind_object[index]
+                                              .content!
+                                              .rendered!,
+                                          'url': kind_object[index].link,
+                                          'image': kind_object[index]
+                                              .lpListingproOptions!
+                                              .businessLogo!,
+                                          "phone": kind_object[index]
+                                              .lpListingproOptions!
+                                              .phone!,
+                                          'website': kind_object[index]
+                                              .lpListingproOptions!
+                                              .website!,
+                                          'facebook': kind_object[index]
+                                              .lpListingproOptions!
+                                              .facebook!,
+                                        }));
+
                                         FavItem favitem = FavItem({
                                           'itemid': 2,
                                           'name':

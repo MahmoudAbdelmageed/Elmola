@@ -32,14 +32,14 @@ class MyHomePageh extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        // leading: IconButton(
-        //   icon: const Icon(Icons.favorite),
-        //   onPressed: () {
-        //     Navigator.push(context, MaterialPageRoute(builder: (context) {
-        //       return FavScreen();
-        //     }));
-        //   },
-        // ),
+        leading: IconButton(
+          icon: const Icon(Icons.favorite),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return FavScreen();
+            }));
+          },
+        ),
         actions: [
         ],
       ),

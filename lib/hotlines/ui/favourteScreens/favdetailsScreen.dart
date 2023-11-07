@@ -1,3 +1,4 @@
+import 'package:el_mola/hotlines/model/sqliteModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,20 +16,14 @@ import '../../utilites/detailsScreen/title.dart';
 import '../../utilites/footer.dart';
 
 class FavDetailsScreen extends StatefulWidget {
-  var data;
-  FavDetailsScreen(this.data);
+  FavItem data;
+  FavDetailsScreen( this.data);
   @override
   _FavDetailsScreenState createState() => _FavDetailsScreenState();
 }
 
 class _FavDetailsScreenState extends State<FavDetailsScreen> {
   var unescape = HtmlUnescape();
-  late DbHelper helper;
-  @override
-  void initState() {
-    super.initState();
-    helper = DbHelper();
-  }
   @override
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
@@ -50,10 +45,8 @@ class _FavDetailsScreenState extends State<FavDetailsScreen> {
                 height: h / 2.2,
                 child: widget.data.image== ""
                     ?  NoImage()
-                    : CashedImage(imageurl: widget.data.image,),
+                    : CashedImage(imageurl: widget.data.image!,),
               ),
-              DetailsTitle(title:widget.data.name),
-              BackArrow(),
             ],
           ),
           Padding(
@@ -68,21 +61,21 @@ class _FavDetailsScreenState extends State<FavDetailsScreen> {
                 //       color: gryColor,
                 //       fontWeight: FontWeight.w600),
                 // ),
-                ShareButton(url: widget.data.url),
+                ShareButton(url: widget.data.url!),
                 SizedBox(height: 12),
                 ContactRow(
-                  path: "assets/image/phone.png",
+                  path: "assets/images/logo.png",
                   data: widget.data.phone,
                   command: "tel:+${widget.data.phone}",
                 ),
                 SizedBox(height: 8),
                 ContactRow(
-                    path: "assets/image/site.png",
+                    path: "assets/images/logo.png",
                     data: widget.data.website,
                     command: widget.data.website),
                 SizedBox(height: 8),
                 ContactRow(
-                    path: "assets/image/facebook.png",
+                    path: "assets/images/logo.png",
                     data: widget.data.facebook,
                     command: widget.data.facebook),
               ],
